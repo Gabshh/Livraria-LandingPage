@@ -1,0 +1,92 @@
+#secao-produtos {
+    color: rgb(37, 117, 209);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: inherit;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255); 
+    z-index: 7;
+}
+
+.titulo-secao{
+    margin-top: 100px;
+    padding-bottom: 100px;
+    font-size: 2.5rem;
+}
+
+.card-container{
+    max-width: 1900px;
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 360px;
+    width: 300px;
+    box-shadow: 20px 20px 50px -15px #AFD6FF;
+    border-radius: 50px;
+    transition: box-shadow 1s;
+    padding: 8px;
+    padding-bottom: 20px;
+    margin-bottom: 100px;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #0005;
+}
+
+.card-image-container {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-image{
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.card-descricao {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.card-avaliacao {
+    color: peru;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+.card-preco {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.card-parcelamento {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: .8rem;
+    margin-left: 20px;
+}
