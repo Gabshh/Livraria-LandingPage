@@ -1,0 +1,28 @@
+#secao-produtos-menu{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.barra-menu{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    padding: 6px 14px;
+    background-color: #11101d;
+}
+
+.barra-menu .conteudo-logo .logo{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.conteudo-logo .logo i {
+    font-size: 28px;
+    margin-right: 5px;
+
+}

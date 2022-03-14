@@ -9,11 +9,13 @@
         <link rel="stylesheet" type="text/css" href="./css/secao-pesquisa.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/secao-produtos.css">
+        <link rel="stylesheet" type="text/css" href="css/secao-produtos-menu.css">
         <link rel="stylesheet" type="text/css" href="css/secao-promocoes.css">
         <link rel="stylesheet" type="text/css" href="./css/secao-destaques.css">
         <link rel="stylesheet" type="text/css" href="./css/secao-sobre.css">
         <link rel="stylesheet" type="text/css" href="./css/secao-contatos.css">
         <link rel="stylesheet" type="text/css" href="./css/secao-contatos-background.css">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <title>LivrosLivrosLivros</title>
     </head>
     <body>
@@ -60,7 +62,86 @@
 
         </div>
 
-        <div id="secao-produtos">
+        
+
+        <section id="secao-produtos">
+
+            <div id="secao-produtos-menu">
+
+                <div class="barra-menu">
+                    <div class="conteudo-logo">
+                        <div class="logo">
+                            <div class="vulgo-menu">
+                                <a href="#"><img src="./img/vulgo.png" alt="Logo" /></a>
+                        </div>
+                        <i class='bx bx-menu' id="btnMenu" ></i>
+                    </div>
+                    <ul class="lista">
+                        <li>
+                            <a href="#">
+                                <ion-icon name="flask-outline"></ion-icon>
+                                <span class="link-categoria">Ficção Científica</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="planet-outline"></ion-icon>
+                                <span class="link-categoria">HQs</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class='bx bx-ghost' ></i>
+                                <span class="link-categoria">Terror</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="desktop-outline"></ion-icon>
+                                <span class="link-categoria">Informática e Tecnologia</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="earth-outline"></ion-icon>
+                                <span class="link-categoria">Cultura e Arte</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="skull-outline"></ion-icon>
+                                <span class="link-categoria">Suspense</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="book-outline"></ion-icon>
+                                <span class="link-categoria">Contos e Crônicas</span>
+                            </a>
+                            <!--<span class="dica-menu">Ficção Científica</span>-->
+                        </li>
+                    </ul>
+                    <div class="conteudo-ilustracao">
+                        <div class="ilustracao-menu">
+                            <div class="ilustracao-aberta">
+                                <!--<a href="#"><img src="./img/" alt="astronaut" /></a>-->
+                            </div>
+    
+                            <ion-icon name="rocket-outline" id="rocket" ></ion-icon>
+    
+                        </div>
+                    </div>
+                </div>
+
+        
+            </div>
+
             <h1 class="titulo-secao">PRODUTOS</h1>
             <div class="card-container">
             
@@ -117,7 +198,8 @@
                 </div>
                 
             </div>
-        </div>
+
+        </section>
 
         <div id="secao-promocoes">
             <h1 class="titulo-secao">PROMOÇÕES</h1>
