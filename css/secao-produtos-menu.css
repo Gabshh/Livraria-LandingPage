@@ -6,10 +6,10 @@
 
 .barra-menu{
     position: relative;
-    margin-top: 100px;
+    margin-top: 260px;
     top: 0;
     left: 0;
-    height: 100vh;
+    min-height: 100%;
     width: 80px;
     background-color: #11101d;
     border-radius: 20px;
@@ -95,6 +95,15 @@
     border-radius: 12px;
     transition: all 0.4s ease;
     
+}
+
+.barra-menu ul li a span{
+    visibility: hidden;
+    transition: all 1s ease-out;
+}
+
+.barra-menu:hover ul li a span{
+    visibility: visible;
 }
 
 .barra-menu ul li a:hover{

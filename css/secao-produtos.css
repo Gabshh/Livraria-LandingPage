@@ -18,6 +18,10 @@
     font-size: 2.5rem;
 }
 
+#titulo-secao-produtos{
+    margin-right: 90px;
+}
+
 .card-container{
     max-width: 1900px;
     padding: 8px;
@@ -28,6 +32,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 100px;
+    
 }
 
 .card {

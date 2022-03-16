@@ -43,6 +43,7 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    white-space: nowrap;
     gap: 20px;
 }
 
