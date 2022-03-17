@@ -36,7 +36,7 @@
     flex-direction: column;
     height: 360px;
     width: 300px;
-    box-shadow: 20px 20px 50px -15px #AFD6FF;
+    box-shadow: 4px 18px 28px #cde2f8;
     border-radius: 50px;
     transition: box-shadow 1s;
     padding: 8px;
@@ -46,7 +46,7 @@
 
 .card:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px #0005;
+    box-shadow: 4px 18px 48px #68a0dd;
 }
 
 .card-image-container {
@@ -104,6 +104,7 @@
     padding: 14px 15px;
 }
 
+/*
 .card-box{
     display: none;
 }
@@ -131,4 +132,4 @@
 }
 .card-box:nth-child(8) {
     display: block;
-}
+}*/

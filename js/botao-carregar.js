@@ -1,6 +1,6 @@
 'use strict'
 
-let boxCard = document.querySelectorAll('.card-box');
+/*let boxCard = document.querySelectorAll('.card-box');
 const botao = document.getElementById('carregar-mais');
 var qtdeCardsAtual = 8;
 
@@ -17,4 +17,4 @@ const carregarMais = () => {
     }
 }
 
-botao.addEventListener('click', carregarMais());
+botao.addEventListener('click', carregarMais());*/

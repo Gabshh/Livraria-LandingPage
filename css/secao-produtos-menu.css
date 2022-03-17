@@ -9,7 +9,7 @@
     margin-top: 260px;
     top: 0;
     left: 0;
-    min-height: 100%;
+    height: inherit;
     width: 80px;
     background-color: #11101d;
     border-radius: 20px;
