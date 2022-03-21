@@ -198,3 +198,31 @@ section .onda.onda4 {
         background-position-x: 1000px;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    
+    
+    #caixa-pesquisa{
+        height: 50px;
+        width: 80vw;
+        padding: 15px;
+        
+    }
+
+    #pesquisa-livro{
+        font-size: 1rem;
+        height: 50px;
+        width: 50vw;
+        margin-left: 0%;
+        text-align: start;
+        padding-left: 5px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        
+        /* Deixar caixa de pesquisa acima das imagens */
+        display:block;
+        position: relative;
+    }
+
+}
