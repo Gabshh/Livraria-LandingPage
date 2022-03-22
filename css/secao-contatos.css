@@ -193,3 +193,65 @@
     margin-top: 50px;
     color: white;
 }
+
+@media only screen and (max-width: 768px) {
+    
+    .formulario-container{
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 5fr 4fr;
+        grid-template-areas: 
+        "formulario"
+        "informacoes"
+        "convite"
+        "mapa"
+        ;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .formBox .row100 .inputBox{
+    width: 50%;
+    }
+
+    .inputBox span{
+        color: white;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+
+    .inputBox input{
+        color: white;
+        padding: 10px;
+        font-size: 1.1rem;
+        outline: none;
+        border: 1px solid #333;
+        background-color: #fff1;
+    }
+
+    .inputBox textArea{
+        color: white;
+        padding: 10px;
+        font-size: 1.1rem;
+        outline: none;
+        border: 1px solid #333;
+        resize: none;
+        min-height: 220px;
+        margin-bottom: 10px;
+        background-color: #fff1;
+    }
+
+    .inputBox input[type="submit"] {
+        background: rgba(28,92,244);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        max-width: 150px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 14px 15px;
+    }
+}
