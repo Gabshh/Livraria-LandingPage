@@ -199,8 +199,6 @@
     .formulario-container{
         position: relative;
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 5fr 4fr;
         grid-template-areas: 
         "formulario"
         "informacoes"
@@ -211,8 +209,14 @@
         margin-top: 20px;
     }
 
+    .formBox .row50{
+        display: flex;
+        flex-direction: column;
+        width: 160vw;
+    }
+
     .formBox .row100 .inputBox{
-    width: 50%;
+        width: 80vw;
     }
 
     .inputBox span{
