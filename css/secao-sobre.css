@@ -56,17 +56,21 @@
 
 @media only screen and (max-width: 768px) {
 
+    .sobre-conteudo h1{
+        max-width: 40vw;
+    }
+
+    .sobre-conteudo h3{
+        max-width: 70vw;
+    }
+
     .sobre-conteudo{
-        
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: justify;
-    }
-
-    .sobre-conteudo h3{
-        min-width: 400px;
+        max-width: 90vw;
     }
 
     #ilustracoes{

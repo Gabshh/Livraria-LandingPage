@@ -117,7 +117,7 @@
     opacity: .8;
 }
 
-@media only screen and (max-width: 300px) {
+/*@media only screen and (max-width: 100px) {
     .card-container{
         max-width: 900px;
         padding: 4px;
@@ -137,4 +137,4 @@
         margin-bottom: 100px;
     }
 
-}
+}*/
