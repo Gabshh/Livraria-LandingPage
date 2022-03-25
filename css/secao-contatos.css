@@ -252,19 +252,20 @@
         max-width: 60vw;
     }
 
+    .convite{
+        margin: auto;
+
+    }
+
     .convite h3{
         font-size: 1.3rem;
         max-width: 90vw;
     }
 
     .convite p{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin-top: 50px;
-        max-width: 90vw;
-        margin-right: 20px;
-        color: white;
+        max-width: 100vw;
+        margin-right: 90vw;
     }
 
     .mapa{
