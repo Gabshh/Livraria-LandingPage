@@ -68,6 +68,11 @@
         max-width: 250px;
     }
 
+    .card-preco{
+        display: flex;
+        flex-direction: row;
+    }
+
     .tag-desconto{
         font-size: 1.4rem;
         width: 90px;

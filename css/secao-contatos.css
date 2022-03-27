@@ -238,6 +238,9 @@
     .inputBox input[type="submit"] {
         font-size: 1.1rem;
         max-width: 150px;
+        margin: auto;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
     .informacoes{
@@ -245,7 +248,7 @@
     }
 
     .informacoes h3{
-        max-width: 90vw;
+        max-width: 80vw;
     }
 
     .infoBox p{
