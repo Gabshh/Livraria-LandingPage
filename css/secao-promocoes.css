@@ -37,4 +37,40 @@
     text-decoration: line-through;
     font-size: 1.1rem;
     opacity: 0.7;
+    max-width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 768px)  {
+    .tag-desconto{
+        font-size: 0.9rem;
+        font-weight: 500;
+        width: 60px;
+        height: 60px;
+    }
+
+    .preco-antigo{
+        font-size: 0.9rem;
+        max-width: 150px;
+    }
+
+    .card-preco{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .preco-antigo{
+        max-width: 250px;
+    }
+
+    .tag-desconto{
+        font-size: 1.4rem;
+        width: 90px;
+        height: 90px;
+    }
 }

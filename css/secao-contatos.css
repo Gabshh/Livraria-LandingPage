@@ -259,13 +259,14 @@
 
     .convite h3{
         font-size: 1.3rem;
-        max-width: 90vw;
+        max-width: 80vw;
     }
 
     .convite p{
         margin-top: 50px;
         max-width: 100vw;
         margin-right: 90vw;
+        text-align: justify;
     }
 
     .mapa{

@@ -61,22 +61,23 @@ header nav a:hover {
     color: rgb(37, 117, 209);
 }
 
-@media only screen and (max-width: 768px) {
-    
-    header{
-        position: absolute;
-    }
-    
+
+@media only screen and (max-width: 1228px)  {
     .secao1{
         display: none;
+    }
+
+    .secao2{
+        display: none;
+    }
+
+    header{
+        position: absolute;
     }
 
     .vulgo-livraria{
         padding-right: 0%;
         margin-left: 0%;
     }
-    
-    .secao2{
-        display: none;
-    }
+
 }

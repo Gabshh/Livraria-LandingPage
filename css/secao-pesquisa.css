@@ -103,7 +103,7 @@
 }
 
 .planetas {
-    background: url(../img/planetas.png);
+    background: url(../img/planetas.svg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -199,6 +199,19 @@ section .onda.onda4 {
     }
 }
 
+@media only screen and (max-width: 1400px) {
+    .planetas {
+        background: url(../img/planetas.svg)repeat top center;
+    }
+}
+
+@media only screen and (max-width: 1228px) {
+    .planetas{
+        background: url(../img/planetas768.svg)repeat top center;
+        
+    }
+}
+
 @media only screen and (max-width: 768px) {
     
     
@@ -223,6 +236,11 @@ section .onda.onda4 {
         /* Deixar caixa de pesquisa acima das imagens */
         display:block;
         position: relative;
+    }
+
+    .planetas{
+        background: url(../img/planetas768.svg)repeat top center;
+        
     }
 
 }

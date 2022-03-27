@@ -101,3 +101,21 @@
     cursor: pointer;
     padding: 14px 15px;
 }
+
+@media only screen and (max-width: 768px) {
+    .card-destaques {
+        height: 250px;
+        width: 300px;
+    }
+
+    .card-titulo {
+        font-size: 1rem;
+        
+    }
+
+    #botao-destaques{
+    font-size: 0.9rem;
+    width: 100px;
+    margin-bottom: 20px;
+    }
+}
