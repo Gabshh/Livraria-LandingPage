@@ -109,6 +109,16 @@
     -o-background-size: cover;
     background-size: cover;
     z-index: 3;
+    animation: floating 10s linear infinite;
+}
+
+@keyframes floating{
+    0%, 100%{
+        transform: translateY(-20px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
 }
 
 .efeito-brilho {
@@ -200,15 +210,8 @@ section .onda.onda4 {
 }
 
 @media only screen and (max-width: 1400px) {
-    .planetas {
-        background: url(../img/planetas.svg)repeat top center;
-    }
-}
-
-@media only screen and (max-width: 1228px) {
     .planetas{
         background: url(../img/planetas768.svg)repeat top center;
-        
     }
 }
 
