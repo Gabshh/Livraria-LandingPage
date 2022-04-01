@@ -1,0 +1,199 @@
+#login-cms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.login-container{
+    position: relative;
+    width: 35vw;
+    min-height: 50vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.dados-container{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding: 50px;
+}
+
+.login-container h1{
+    position: relative;
+    margin: auto;
+    bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(37, 117, 209);
+}
+
+.login-container img{
+    position: relative;
+    bottom: 50px;
+}
+
+.form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box input{
+    width: 20vw;
+    font-size: 1.1rem;
+    padding: 10px;
+    padding-right: 48px;
+    border-radius: 20px;
+}
+
+#user-icon{
+    position: absolute;
+    font-size: 1.2rem;
+    padding-top: 12px;
+    top: -0.0.1vh;
+    right: 8.5vw;
+}
+
+#olho-icon{
+    position: absolute;
+    font-size: 1.2rem;
+    padding-top: 12px;
+    top: -0.0.1vh;
+    right: 8.5vw;
+    cursor: pointer;
+}
+
+#login-btn{
+    width: 7vw;
+    margin-left: 6.5vw;
+    margin-right: 6.5vw;
+    margin-top: 5vh;
+    background: rgba(28,92,244);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 10px 11px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#login-btn:hover{
+    transform: translateY(-6px);
+}
+
+.planetas{
+    position: absolute;
+    z-index: 3;
+    animation: flutuar 8s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes flutuar {
+    0%,100% {
+        transform: translateY(-20px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+}
+
+.planetas:nth-child(1) {
+    top: 90px;
+    left: -90px;
+    height: 100px;
+}
+.planetas:nth-child(2) {
+    top: 340px;
+    left: -220px;
+    height: 120px;
+}
+.planetas:nth-child(3) {
+    bottom: -50px;
+    right: -60px;
+    height: 80px;
+}
+.planetas:nth-child(4) {
+    bottom: 300px;
+    right: -200px;
+    height: 50px;
+}
+
+.ondas-container{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 35vw;
+    background-color: transparent;
+    
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 140px;
+    z-index: 2;
+}
+
+section .onda {
+    position: absolute;
+    
+    width: 100%;
+    height: 100px;
+    background: url(../../img/onda.png);
+    background-size: 1000px 100px;
+    z-index: 2;
+}
+
+section .onda.onda1 {
+    animation: animate 30s linear infinite;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+section .onda.onda2 {
+    animation: animate2 15s linear infinite;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 10px;
+}
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}

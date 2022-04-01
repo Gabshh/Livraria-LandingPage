@@ -1,0 +1,26 @@
+.estrelas, .efeito-brilho, .cadente{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+
+.estrelas {
+    background:rgb(0, 0, 0) url(../../img/estrelas.png) repeat top center;
+    z-index:1;
+}
+
+.efeito-brilho {
+    background:transparent url(../../img/efeito-brilho.png) repeat top center;
+    z-index:1;
+    animation:mover-efeito-brilho 200s linear infinite;
+}
+
+@keyframes mover-efeito-brilho {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
