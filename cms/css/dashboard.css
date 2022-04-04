@@ -1,10 +1,11 @@
+
 header {
     height:250px;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(46, 46, 46);
+    padding-top: 50px;
     z-index: 2;
 }
 
@@ -34,18 +35,49 @@ header {
 .imagem-header img{
     height: 250px;
     margin-right: 100px;
+    animation: girar 15s linear infinite;
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flutuar-girar {
+    0%, 100% {
+        transform: rotate(0deg) translateY(-20px);
+        position: 0 0;
+    }
+
+    50% {
+        transform: rotate(360deg) translateY(20px);
+        position: 2500000px 0;
+    }
 }
 
 .ancoras{
-    background-color: rgb(26, 24, 23);
     height:inherit;
     width: 100vw;
+    z-index: 3;
+}
+
+.conteudo-ancoras{
+    height: inherit;
+    width: 100vw;
+    padding-top: 100px;
+    z-index: 4;
+    background: linear-gradient(to top,  rgba(34, 5, 138, 50%), rgba(34, 5, 138, 50%), rgba(255, 255, 255, 0));
 }
 
 .ancoras nav{
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    color: rgb(37, 117, 209);
+    color: #FFC045;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,15 +86,103 @@ header {
     padding-right: 100px;
 }
 
-.ancoras nav li{
-    list-style: none;
+
+.itens-link .icons {
+    width: 80px;
+    height: 80px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(28,92,244);
+    border-radius: 50%;
+}
+.itens-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.ancoras nav li a{
-    text-decoration: none;
+.icons i{
+    font-size: 2.5rem;
+    border-radius: 12px;
+}
+
+.ancoras nav li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
     font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: rgb(37, 117, 209);
+    color: rgba(28,92,244);
+    margin-top: 20px;
+}
+
+.ancoras nav ul li{
+    text-decoration: none;
+}
+
+.ancoras nav ul a img{
+    position: absolute;
+    height: 50px;
+    transition: all 0.2s ease;
+}
+
+.logout-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#logout-icon{
+    opacity: 1;
+}
+
+#logout-hover{
+    opacity: 0;
+}
+
+.logout:hover #logout-icon{
+    opacity: 0;
+}
+.logout:hover #logout-hover{
+    opacity: 1;
+}
+
+.logout-dica{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgba(28,92,244);
+    position: absolute;
+    height: 35px;
+    width: 100px;
+    right: 220px;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(3, 131, 250, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.logout:hover .logout-dica{
+    opacity: 1;
+    transition: all 0.5s ease;
+    right: 250px;
+}
+
+.ancoras nav ul a li{
+    padding-top: 50px;
+    opacity: 0;
 }
 
 .itens-link{
@@ -74,23 +194,46 @@ header {
 }
 
 .secao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(37, 117, 209);
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-size: 1.5rem;
     padding: 20px;
-    height: 500px;
+    height: inherit;
+    background-color: #fff;
+    z-index: 3;
+}
+
+.home-illustration img{
+    height: 600px;
 }
 
 footer{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
-    background-color: rgb(46, 46, 46);
+    height: 100px;
+    padding: 50px;
     color: #fff;
-    height: inherit;
+    
+}
+
+.vulgo-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.vulgo-footer img{
+    height: 50px;
 }
 
 .copyright{
@@ -98,6 +241,7 @@ footer{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 3;
 }
 
 .versao{
@@ -105,4 +249,65 @@ footer{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 3;
+}
+
+
+.ondas-container{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 35vw;
+    background-color: transparent;
+    
+}
+
+div .transicao-ondas{
+    position: relative;
+    width: inherit;
+    height: 140px;
+    z-index: 2;
+}
+
+div .onda {
+    position: absolute;
+    width: 300%;
+    height: 70px;
+    z-index: 2;
+}
+
+/*div .onda.onda-ancora {
+    background: url(../img/onda-cms.png);
+    animation: animate-backwards 230s linear infinite;
+    background-size: 1200px 100px;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}*/
+
+div .onda.onda1 {
+    background: url(../../img/onda.png);
+    background-size: 1500px 100px;
+    animation: animate 230s linear infinite;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+}
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 10000px;
+    }
+}
+@keyframes animate-backwards{
+    0%{
+        background-position-x: 10000px;
+    }
+    100%{
+        background-position-x: 0;
+    }
 }
