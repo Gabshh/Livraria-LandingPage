@@ -57,14 +57,14 @@
                             </div>
 
                             <div class="itens-box">
-                                <a href="#secao-categorias">
+                                <a href="./categorias.php">
                                     <div class="icons"><i class='bx bx-category-alt'></i></div>
                                 </a>
                                 <li>Adm. de Categorias</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="#secao-contatos">
+                                <a href="./contatos.php">
                                     <div class="icons"><i class='bx bx-comment-dots'></i></div>
                                 </a>
                                 <li>Contatos</li>
