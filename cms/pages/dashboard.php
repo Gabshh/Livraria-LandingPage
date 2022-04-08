@@ -84,7 +84,7 @@
                         <div class="logout-box">
                             <h3>Bem-vindo, 'Nome Usuário'</h3>
                             <div class="logout">
-                                <a href="../login.html">
+                                <a href="../login.php">
                                     <div class="logout-icons">
                                         <span class="logout-dica">Logout</span>
                                         <img id="logout-icon" src="../img/logout-icon.svg" alt="">

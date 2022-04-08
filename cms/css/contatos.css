@@ -8,6 +8,7 @@ body, h1, p{
     min-height: 300px;
     height: auto;
     border: solid 1px black;
+    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
@@ -22,6 +23,7 @@ body, h1, p{
 #tblTitulo{
     width: 100%;
     height: 30px;
+    border-radius: 50px;
     background-color: dodgerblue;
     color: white;
     text-align: center;
