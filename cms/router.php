@@ -23,6 +23,7 @@
 
         //Estrutura condicional para validar quem esta solicitando algo para o Router
         switch($component){
+            
             case 'CONTATOS':
                 
                 //Import da controller Contatos
@@ -76,10 +77,95 @@
 
                     /*Utilizando o require iremos apenas importar a tela da index, 
                     assim não havendo um novo carregamento da página*/
-                     require_once('index.php');
+                     require_once('contatos.php');
 
                 }
-                break; 
+                break;
+
+            case 'CATEGORIAS':
+
+                //Import da controller Categorias
+                require_once('./controller/controllerCategorias.php');
+
+                //Validação para identificar o tipo de ação que será realizado
+                if($action == 'INSERIR'){
+                    //Chama a função de inserir na controller
+                    try {
+                    $resposta = inserirCategoria($_POST);
+                    } catch (Exception $e) {
+                        echo $e->getMessage();
+                    } 
+
+                    //Valida o tipo de dados que a controller retornou
+                    if(is_bool($resposta)) { //Se for booleano 
+                        
+                        if($resposta) // Verificar se o retorno foi verdadeiro
+                            echo("<script>
+                                    alert('Registro inserido com sucesso'); 
+                                    window.location.href = 'categorias.php';
+                                </script>");
+                    //Se o retorno for um arry significa que houve erro no processo de inserção
+                    } elseif (is_array($resposta)) {
+                        echo("<script>
+                                alert('".$resposta['message']."'); 
+                                window.history.back();
+                            </script>");
+                    }
+
+                } 
+                //Validação para identificar o tipo de ação que será realizado
+                elseif($action == 'DELETAR') {
+                    /*Recebe o id do registro que deverpa ser exlcuido, que foi enviado pela url
+                     no link da imagem do excluir que foi acionado na index*/
+                    $idCategoria = $_GET["id"];
+
+                    //Chama a função de excluir na controller
+                    $resposta = excluirCategoria($idCategoria);
+
+                    if (is_bool($resposta) && $resposta) {
+                        echo("<script>
+                                alert('Registro excluído com sucesso'); 
+                                window.location.href = './pages/categorias.php';
+                            </script>");
+                    } elseif (is_array($resposta)){
+                        echo("<script>
+                                    alert('".$resposta['message']."'); 
+                                    window.history.back();
+                            </script>");
+                    }
+
+                }elseif($action == 'BUSCAR') {
+                    /*Recebe o id do registro que deverpa ser editado, 
+                    que foi enviado pela url no link da imagem do editar
+                    que foi acionado no categorias.php*/
+                     $idCategoria = $_GET["id"];
+
+                    //Chama a função de buscar na controller
+                     $dados = buscarCategoria($idCategoria);
+
+                    //Ativa a utilização de variáveis de sessão no servidor
+                     session_start();
+
+                    //Guarda em uma variável de sessão os dados que o BD retornou para a busca do id
+                    /*
+                    OBS (essa variável de sessão será utilizada na index, 
+                    para colocar os dados nas caixas e texto)
+                    */
+                     $_SESSION['dadosCategoria'] = $dados;
+
+                    /* Utilizando o header também poderemos chamar a index.php 
+                    porém haverá um delay de carregamento no navegador (piscando a tela)
+                    
+                    header('location: index.php');
+                    */
+
+                    /*Utilizando o require iremos apenas importar a tela da index, 
+                    assim não havendo um novo carregamento da página*/
+                     require_once('./pages/categorias.php');
+
+                }
+                break;
+
         }
 
         

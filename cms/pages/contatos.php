@@ -53,7 +53,7 @@
                         <div class="itens-link">
                             
                             <div class="itens-box">
-                                <a href="#secao-produtos">
+                                <a href="./produtos.php">
                                     <div class="icons"><i class='bx bx-cart-add'></i></div>
                                 </a>
                                 <li>Adm. de Produtos</li>
@@ -133,7 +133,6 @@
                         $listContato = listarContato();
 
                         //Estrutura de repetição para retirar os dados do array e printar na tela
-                        
                         if(!empty($listContato)) {
                             foreach($listContato as $item) {
 
@@ -145,9 +144,6 @@
                             <td class="tblColunas registros"><?=$item['email']?></td>
                         
                             <td class="tblColunas registros">
-                                <a href="router.php?component=contatos&action=buscar&id=<?=$item['id']?>">
-                                    <img src="../img/edit.png" alt="Editar" title="Editar" class="editar">
-                                </a>
 
                                 <a onclick="return confirm('Deseja realmente excluir esse item?');" href="../router.php?component=contatos&action=deletar&id=<?=$item['id']?>">
                                     <img src="../img/trash.png" alt="Excluir" title="Excluir" class="excluir">

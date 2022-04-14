@@ -13,7 +13,9 @@ body, h1, p{
     margin-right: auto;
     margin-top: 60px;
     margin-bottom: 10px;
-    box-shadow: 10px 10px 10px #cccccc;
+    border: solid 1px #c8d0e7;
+    border-radius: 3rem;
+    box-shadow: 0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff;
 }
 #tblConsulta{
     width: 100%;

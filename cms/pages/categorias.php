@@ -1,21 +1,16 @@
 <?php 
-
     $nome = (string) null;
+    $icone = (string) null;
 
     //Valida se a utilização de variáveis de sessão está ativa no servidor
     if (session_status()) {
 
         //Valida se a variável de sessão dadosContato não está vazia
         if (!empty($_SESSION['dadosContato'])) {
-            $id         = $_SESSION['dadosContato']['id'];
-            $nome       = $_SESSION['dadosContato']['nome'];
-            $telefone   = $_SESSION['dadosContato']['telefone'];
-            $celular    = $_SESSION['dadosContato']['celular'];
-            $email      = $_SESSION['dadosContato']['email'];
-            $obs      = $_SESSION['dadosContato']['obs'];
+            $nome         = $_SESSION['dadosContato']['nome'];
+            $icone       = $_SESSION['dadosContato']['icone'];
         }
-    }
-    
+    }  
 
 ?>
 
@@ -140,13 +135,22 @@
                         
                     </div>
                     <div id="cadastroInformacoes">
-                        <form  action="router.php?component=contatos&action=inserir" name="frmCadastro" method="post" >
+                        <form  action="../router.php?component=categorias&action=inserir" name="frmCadastro" method="post" >
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Nome: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
                                     <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Adicione uma categoria..." maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Icone: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="text" name="txtIcone" value="<?=$icone?>" placeholder="..." maxlength="100">
                                 </div>
                             </div>
                                             
@@ -174,35 +178,38 @@
                         
                     <?php
                     
+
                             //Import do arquivo da controller para solicitar a listagem dos dados
-                            require_once('controller/controllerContatos.php');
-                            //Chama a função que vai retornar os dados de contatos
-                            $listContato = listarContato();
+                            require_once('../controller/controllerCategorias.php');
+
+
+                            //Chama a função que vai retornar os dados de categorias
+                            $listCategoria = listarCategoria();
 
                             //Estrutura de repetição para retirar os dados do array e printar na tela
-                            foreach($listContato as $item) {
+                            if(!empty($listCategoria)) {
+                                foreach($listCategoria as $item) {
 
                     ?>
 
                             <tr id="tblLinhas">
                                 <td class="tblColunas registros"><?=$item['nome']?></td>
-                                <td class="tblColunas registros"><?=$item['celular']?></td>
-                                <td class="tblColunas registros"><?=$item['email']?></td>
+                                <td class="tblColunas registros"><?=$item['icone']?></td>
                             
                                 <td class="tblColunas registros">
-                                    <a href="router.php?component=contatos&action=buscar&id=<?=$item['id']?>">
-                                        <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                                    <a href="../router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
+                                        <img src="../img/edit.png" alt="Editar" title="Editar" class="editar">
                                     </a>
 
-                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=contatos&action=deletar&id=<?=$item['id']?>">
-                                        <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="../router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
+                                        <img src="../img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                                     </a>
 
-                                    <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
                                 </td>
                             </tr>
 
                         <?php
+                                }
                             }
                         ?>
 

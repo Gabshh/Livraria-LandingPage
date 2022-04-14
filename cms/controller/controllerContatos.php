@@ -1,6 +1,6 @@
 <?php
     /*************************************************************************************
-     * Objetivo: Arquivo responsável pela manipulação de dados de contatos
+     * Objetivo: Arquivo responsável pela manipulação de dados de categorias
      * Obs (Este arquivo fará a ponte entre a View e a Model)
      * Dev: Gabriel Gomes
      * Data: 07/04/2022
