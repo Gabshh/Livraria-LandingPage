@@ -32,11 +32,12 @@
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
         <link rel="stylesheet" type="text/css" href="../css/cms-background.css">
         <link rel="stylesheet" type="text/css" href="../css/categorias.css">
+        <link rel="stylesheet" type="text/css" href="../css/produtos.css">
 
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-        <title>Categorias - Mybrary</title>
+        <title>Produtos - Mybrary</title>
     </head>
     <body>
         <div class="estrelas"></div>
@@ -75,14 +76,14 @@
                         <div class="itens-link">
                             
                             <div class="itens-box">
-                                <a href="./produtos.php">
+                                <a href="#">
                                     <div class="icons"><i class='bx bx-cart-add'></i></div>
                                 </a>
                                 <li>Adm. de Produtos</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="#">
+                                <a href="./categorias.php">
                                     <div class="icons"><i class='bx bx-category-alt'></i></div>
                                 </a>
                                 <li>Adm. de Categorias</li>
@@ -133,20 +134,56 @@
         </section>
 
         <section class="secao">
-            <div class="secao-categorias">
+            <div class="secao-produtos">
                 <div id="cadastro"> 
                     <div id="cadastroTitulo"> 
-                        <h1> Cadastro de Categorias </h1>
+                        <h1> Cadastro de Produtos </h1>
                         
                     </div>
                     <div id="cadastroInformacoes">
                         <form  action="router.php?component=contatos&action=inserir" name="frmCadastro" method="post" >
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
-                                    <label> Nome: </label>
+                                    <label> Descrição: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Adicione uma categoria..." maxlength="100">
+                                    <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Adicione uma descrição..." maxlength="100">
+                                </div>
+                            </div>
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Avaliação: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="text" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
+                                </div>
+                            </div>
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Preço: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="text" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
+                                </div>
+                            </div>
+                        
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Desconto: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="text" name="txtEmail" value="<?= isset($email)?$email:null ?>">
+                                </div>
+                            </div>
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Observações: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <textarea name="txtObs" cols="50" rows="7"><?= isset($obs)?$obs:null ?></textarea>
                                 </div>
                             </div>
                                             
@@ -167,8 +204,8 @@
                             </td>
                         </tr>
                         <tr id="tblLinhas">
-                            <td class="tblColunas destaque"> Nome </td>
-                            <td class="tblColunas destaque"> Ícone </td>
+                            <td class="tblColunas destaque"> Descrição </td>
+                            <td class="tblColunas destaque"> Preço </td>
                             <td class="tblColunas destaque"> Opções </td>
                         </tr>
                         

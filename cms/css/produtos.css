@@ -1,0 +1,43 @@
+#cadastro{
+    min-height: 500px;
+}
+
+textarea,
+select {
+    height: 120px;
+    width: 90%;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+    background: none;
+    font-family: inherit;
+    color: #9baacf;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff;
+    transition: 1s;
+    resize: none;
+}
+
+textarea::-moz-placeholder {
+    color: #bec8e4;
+  }
+  textarea:-ms-input-placeholder {
+    color: #bec8e4;
+  }
+  textarea::placeholder {
+    color: #bec8e4;
+  }
+  textarea:focus {
+    outline: none;
+    box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+  }
+
+  textarea:hover {
+    background-color: rgba(226, 231, 255, 0.568);
+    transition: 1s;
+}
+
+.enviar{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}

@@ -50,7 +50,7 @@
                         <div class="itens-link">
                             
                             <div class="itens-box">
-                                <a href="#secao-produtos">
+                                <a href="./produtos.php">
                                     <div class="icons"><i class='bx bx-cart-add'></i></div>
                                 </a>
                                 <li>Adm. de Produtos</li>

@@ -2,42 +2,42 @@ body, h1, p{
     margin: 0px;
     padding: 0px;
 }
-#cadastro{
-    width: 800px;
-    min-height: 700px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border: solid 1px black;
-    box-shadow: 10px 10px 10px #cccccc;
+
+.secao{
+    background-color: #eae8ff;
+}
+div .onda.onda1 {
+    background: url(../img/onda-cms.png);
+    background-size: 1200px 90px;
 }
 
-#login{
-    width: 800px;
+#cadastro{
+    width: 1000px;
     min-height: 400px;
-    height: auto;
+    height: inherit;
     margin-left: auto;
     margin-right: auto;
+    background-color: #eae8ff;
     border-radius: 10px;
     box-sizing: border-box;
-    border: solid 1px black;
-    box-shadow: 10px 10px 10px #cccccc;
+    border: solid 1px #c8d0e7;
+    border-radius: 3rem;
+    box-shadow: 0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff;
 }
 
 #cadastroTitulo{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: dodgerblue;
     width: auto;
     height: 120px;
     text-align: center;
-    color: white;
-    font-size: 1.6em;
+    color: rgb(37, 117, 209);
+    font-size: 1.3em;
     box-sizing: border-box;
     padding-top: 30px;
+    padding-bottom: 110px;
 }
+
 .campos{
     width: auto;
     height: 50px;
@@ -49,75 +49,94 @@ body, h1, p{
 .cadastroInformacoesPessoais  {
     width: 270px;
     height: 55px;
+    margin-top: 10px;
     float: left;
-   
-    background-color: #ededed;
     text-align: right;
     font-size: 1.1em;
+    font-weight: bold;
     padding-top: 10px;
     padding-right: 10px;
     box-sizing: border-box;
     margin-right: 10px;
-    
 }
+
 .cadastroEntradaDeDados {
     width: 600px;
     height: auto;
     margin-left: 10px;
     padding-top: 10px;
     box-sizing: border-box;
-
-  
 }
 
-input[type=text], 
-input[type=tel], 
-input[type=email],
+input[type=text],
 select {
-    height: 30px;
-    margin-left: 10px;
+    height: 50px;
     width: 90%;
-
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+    background: none;
+    font-family: inherit;
+    color: #9baacf;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff;
+    transition: 1s;
 }
 
-input[type=text]:hover, 
-input[type=tel]:hover, 
-input[type=email]:hover{
-    background-color: rgb(246, 246, 196);
+input[type=text]::-moz-placeholder {
+    color: #bec8e4;
+  }
+  input[type=text]:-ms-input-placeholder {
+    color: #bec8e4;
+  }
+  input[type=text]::placeholder {
+    color: #bec8e4;
+  }
+  input[type=text]:focus {
+    outline: none;
+    box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+  }
+
+input[type=text]:hover {
+    background-color: rgba(226, 231, 255, 0.568);
     transition: 1s;
 }
 
 
-.cadastroEntradaDeDados textarea{
-    width: 90%;
-    height: 100px;
-    resize: none;
-}
+
 .enviar input{
     width: 150px;
     height: 50px;
-    background-color: dodgerblue;
-    color: white;
+    border: none;
     margin-top: 30px;
-    font-size: 1.2em;
+    font-size: 1em;
+    background: #5d87fc;
+    border-radius: 1em;
+    box-shadow: inset 0.2rem 0.2rem 1rem #8abdff, inset -0.2rem -0.2rem 1rem #0e6eeb, 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+    transition: all 0.5s ease;
+    color: #fff;
 }
 
 .enviar input:hover{
-    background-color: rgb(17, 59, 197);
+    box-shadow: inset 0.2rem 0.2rem 1rem #0e5beb, inset -0.2rem -0.2rem 1rem #8abdff;
     cursor: pointer;
-    transform: scale(1.1);
-    transition: 1s;
+    transform: translateY(-6px);
+    transition: all 0.5s ease;
 
 }
 
 .enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100;
     height: 50px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 50px;
     margin-bottom: 20px;
 }
+
+/*///////////////////////////////////*/
+
 #consultaDeDados{
     width: 1000px;
     min-height: 300px;
@@ -127,7 +146,12 @@ input[type=email]:hover{
     margin-right: auto;
     margin-top: 60px;
     margin-bottom: 10px;
-    box-shadow: 10px 10px 10px #cccccc;
+    padding: 0 10px;
+    padding-bottom: 20px;
+    background-color: #eae8ff;
+    border: solid 1px #c8d0e7;
+    border-radius: 3rem;
+    box-shadow: 0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff;
 }
 #tblConsulta{
     width: 100%;
@@ -137,22 +161,26 @@ input[type=email]:hover{
 #tblTitulo{
     width: 100%;
     height: 30px;
-    background-color: dodgerblue;
-    color: white;
+    background-color: #eae8ff;
+    color: rgb(37, 117, 209);
     text-align: center;
     font-size: 1.6em;
+    border: solid 1px #c8d0e7;
+    border-radius: 3rem;
+    box-shadow: 0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff;
 }
 #tblLinhas{
     width: 100%;
     height: 50px;
-    border: solid 1px black;
+    background-color: #5f8af83d;
 }
 .tblColunas{
     width: 50px;
     height: 30px;
     text-align: center;
-    background-color: #9fb9ffab;
-    border: solid 1px black;
+    border: solid 1px #c8d0e7;
+    border-radius: 1rem;
+    box-shadow: 0.8rem 0.8rem 1rem #c8d0e7, 0.2rem 0.2rem 1rem #fff;
 }
 .tblImagens{
     width: auto;
