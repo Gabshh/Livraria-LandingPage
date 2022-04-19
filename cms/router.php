@@ -2,8 +2,8 @@
 
     /*************************************************************************************
      * Objetivo: Arquivo de rota, para segmentar as ações encaminhadas pela View
-     *      (dados de um form, listagem de dados, uma ação de excluir ou atualizar)
-     *      Esse arquivo será responsável por encaminhar as solicitações para a Controller
+     * (dados de um form, listagem de dados, uma ação de excluir ou atualizar)
+     * Esse arquivo será responsável por encaminhar as solicitações para a Controller
      * Dev: Gabriel Gomes
      * Versão: 2.0
      * Data: 01/04/2022
@@ -90,11 +90,8 @@
                 //Validação para identificar o tipo de ação que será realizado
                 if($action == 'INSERIR'){
                     //Chama a função de inserir na controller
-                    try {
+                    
                     $resposta = inserirCategoria($_POST);
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
-                    } 
 
                     //Valida o tipo de dados que a controller retornou
                     if(is_bool($resposta)) { //Se for booleano 
@@ -102,7 +99,7 @@
                         if($resposta) // Verificar se o retorno foi verdadeiro
                             echo("<script>
                                     alert('Registro inserido com sucesso'); 
-                                    window.location.href = 'categorias.php';
+                                    window.location.href = './pages/categorias.php';
                                 </script>");
                     //Se o retorno for um arry significa que houve erro no processo de inserção
                     } elseif (is_array($resposta)) {

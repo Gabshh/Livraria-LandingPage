@@ -11,7 +11,8 @@
     require_once('conexaoMysql.php');
 
      //Função para realizar o insert no BD
-     function insertCategoria($dadosCategoria){
+    function insertCategoria($dadosCategoria){
+        
         //Declaração de variável para utilizar no return desta função
         $statusResposta = (boolean) false;
         //Abre a conexão com o BD 
@@ -32,18 +33,15 @@
         //echo($sql);
 
         //Executa o script no BD
-            //Validação para verificar se o script sql está correto
+        //Validação para verificar se o script sql está correto
         if (mysqli_query($conexao, $sql)) {
-            
+
             //Validação para verificar se uma linha foi acrescentada no BD
             if(mysqli_affected_rows($conexao)) { 
                 $statusResposta = true;
-            }
+            } 
             
-        }
-
-        if (mysqli_errno($conexao)) {
-        }
+        } 
 
         //Solicita o fechamento da conexão com o BD
         fecharConexaoMysql($conexao);
@@ -51,6 +49,7 @@
         return $statusResposta;
         
     }
+
 
     //Função para buscar uma categoria no BD através do id do registro
     function selectByIdCategoria($id){

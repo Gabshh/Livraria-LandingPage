@@ -7,11 +7,11 @@
      * Versão: 1.0
     ************************************************************************************/
 
-    //import do arquivo de modelagem para manipular o BD
-    require_once('./model/bd/model-categorias.php');
-
     // Função para receber dados da View e encaminhar para a Model (Inserir)
     function inserirCategoria($dadosContato) {
+
+        //import do arquivo de modelagem para manipular o BD
+        require_once('./model/bd/model-categorias.php');
 
         // Validação para verificar se  o objeto esta vazio
         if(!empty($dadosCategoria)){
@@ -50,6 +50,10 @@
 
     //Função para buscar uma categora através do id do registro
     function buscarCategoria($id) {
+
+        //import do arquivo de modelagem para manipular o BD
+        require_once('./model/bd/model-categorias.php');
+
         //Validação para verificar se id contém um número válido
         if($id != 0 && !empty($id) && is_numeric($id)) {
 
@@ -76,6 +80,10 @@
 
     //Função para realizar a exclusão de um contato
     function excluirCategoria($id) {
+
+        //import do arquivo de modelagem para manipular o BD
+        require_once('./model/bd/model-categorias.php');
+
         //Validação para verificar se id contém um número válido
         if($id != 0 && !empty($id) && is_numeric($id)) {
             
@@ -94,6 +102,9 @@
 
     //Função para solicitar os dados da Model e encamminhar a lista de categorias para a View
     function listarCategoria() {
+
+        //import do arquivo de modelagem para manipular o BD
+        require_once('../model/bd/model-categorias.php');
 
         //Chama a função que vai buscar os dados no BD
         $dados = selectAllCategorias();
