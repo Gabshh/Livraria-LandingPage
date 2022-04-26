@@ -8,7 +8,7 @@
     ************************************************************************************/
 
     // Função para receber dados da View e encaminhar para a Model (Inserir)
-    function inserirCategoria($dadosContato) {
+    function inserirCategoria($dadosCategoria) {
 
         //import do arquivo de modelagem para manipular o BD
         require_once('./model/bd/model-categorias.php');
@@ -19,15 +19,16 @@
              Validação de caixa vazia do elemento nome,
              pois é obrigatóris no BD
             */
-            if(!empty($dadosCategoria['txtNome'])){ 
+            if(!empty($dadosCategoria['txtNome']) && !empty($dadosCategoria['txtIcone'])) { 
+
                 /* 
                 Criação do array de dados que será encaminhado a model para inserir no BD,
                 é importante criar esse array conforme as necessidades de manipulação do BD
                 OBS: criar as chaves do array conforme os nomes dos atributos do BD
                 */
                 $arrayDados = array(
-                    "nome"      => $dadosContato['txtNome'],
-                    "icone"      => $dadosContato['txtIcone']
+                    "nome"  => $dadosCategoria['txtNome'],
+                    "icone" => $dadosCategoria['txtIcone']
                 );
 
                 
@@ -75,10 +76,53 @@
 
     //Função para receber dados da View e encaminhar para a Model (Atualizar)
     function atualizarCategoria() {
-        
+        // Validação para verificar se  o objeto esta vazio
+        if(!empty($dadosCategoria)){
+            /*
+             Validação de caixa vazia dos elementos nome celular e email,
+             pois são obrigatórios no BD
+            */
+            if(!empty($dadosCategoria['txtNome']) && !empty($dadosCategoria['txtIcone'])){ 
+
+                //Validação para garantir que o id seja válido
+                if(!empty($id) && $id != 0 && is_numeric($id) ){
+                    
+                    /* 
+                    Criação do array de dados que será encaminhado a model para inserir no BD,
+                    é importante criar esse array conforme as necessidades de manipulação do BD
+                    OBS: criar as chaves do array conforme os nomes dos atributos do BD
+                    */
+                    $arrayDados = array(
+                        "id"        => $id,
+                        "nome"      => $dadosCategoria['txtNome'],
+                        "icone"     => $dadosCategoria['txtIcone']
+                    );
+
+                    //import do arquivo de modelagem para manipular o BD
+                    require_once('model/bd/categoria.php');
+                    //Chama a função que fará o update no BD (esta função está na model)
+                    if(updateCategoria($arrayDados))
+                        return true;
+                    else
+                        return array(
+                                    'idErro' => 1,
+                                    'message' => 'Não foi possível atualizar os dados no banco de dados.'
+                                    );
+
+                }else{
+                    return array(
+                                'idErro' => 4,
+                                'message' => 'Não é possível editar o registro sem informar um id válido.'
+                                );
+                } 
+
+            } else
+                return array('idErro' => 2,
+                            'message' => 'Existem campos obrigatórios que não foram preenchidos.');
+        }
     }
 
-    //Função para realizar a exclusão de um contato
+    //Função para realizar a exclusão de uma categoria
     function excluirCategoria($id) {
 
         //import do arquivo de modelagem para manipular o BD

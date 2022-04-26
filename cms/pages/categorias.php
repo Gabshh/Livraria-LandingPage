@@ -1,16 +1,31 @@
 <?php 
+
+    $id = (int) null;
     $nome = (string) null;
     $icone = (string) null;
+
+    /*Essa variável foi criada para diferenciar no action do formulário
+    qual ação deveria ser levada para a router (inserir ou editar).
+    Nas condções abaixo, mudamos o action dessa variável para a ação de editar*/
+    $actionForm = (string) "../router.php?component=categorias&action=inserir";
 
     //Valida se a utilização de variáveis de sessão está ativa no servidor
     if (session_status()) {
 
-        //Valida se a variável de sessão dadosContato não está vazia
-        if (!empty($_SESSION['dadosContato'])) {
-            $nome         = $_SESSION['dadosContato']['nome'];
-            $icone       = $_SESSION['dadosContato']['icone'];
+        //Valida se a variável de sessão dadosCategoria não está vazia
+        if (!empty($_SESSION['dadosCategoria'])) {
+            $id    = $_SESSION['dadosCategoria']['id'];
+            $nome  = $_SESSION['dadosCategoria']['nome'];
+            $icone = $_SESSION['dadosCategoria']['icone'];
+        
+            /*Mudamos a ação do form para editar o registro no click do botão salvar */
+            $actionForm = "../router.php?component=categorias&action=editar&id=".$id;
+
+            //Destrói uma variável da memoria do servidor
+            unset($_SESSION['dadosCategoria']);
+        
         }
-    }  
+    }
 
 ?>
 
@@ -27,7 +42,6 @@
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
         <link rel="stylesheet" type="text/css" href="../css/cms-background.css">
         <link rel="stylesheet" type="text/css" href="../css/categorias.css">
-
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
@@ -135,7 +149,7 @@
                         
                     </div>
                     <div id="cadastroInformacoes">
-                        <form  action="../router.php?component=categorias&action=inserir" name="frmCadastro" method="post" >
+                        <form  action="<?=$actionForm?>" name="frmCadastro" method="post" >
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Nome: </label>

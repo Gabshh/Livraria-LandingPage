@@ -158,8 +158,31 @@
 
                     /*Utilizando o require iremos apenas importar a tela da index, 
                     assim não havendo um novo carregamento da página*/
-                     require_once('./pages/categorias.php');
+                    require_once('pages/categorias.php');
 
+                } elseif($action == 'EDITAR') {
+
+                    //Recebe o id que foi encaminhado no action do form pela URL
+                    $idCategoria = $_GET['id'];
+
+                    //Chama a função de editar na controller
+                    $resposta = atualizarCategoria($_POST, $idCategoria);
+
+                    //Valida o tipo de dados que a controller retornou
+                    if(is_bool($resposta)) { //Se for booleano 
+                        
+                        if($resposta) // Verificar se o retorno foi verdadeiro
+                            echo("<script>
+                                    alert('Registro atualizado com sucesso'); 
+                                    window.location.href = './pages/categorias.php';
+                                </script>");
+                    //Se o retorno for um array significa que houve erro no processo de edição
+                    }elseif (is_array($resposta)) {
+                        echo("<script>
+                                alert('".$resposta['message']."'); 
+                                window.history.back();
+                            </script>"); 
+                    }
                 }
                 break;
 

@@ -19,7 +19,7 @@
         $conexao = conexaoMysql();
         
         //Monta o script para enviar para o BD
-        $sql = "insert into table_categorias 
+        $sql = "insert into tbl_categorias 
                     (
                     nome,
                     icone
@@ -92,8 +92,38 @@
     }
 
     //Função para realizar o update no BD
-    function updateCategoria(){
-        
+    function updateCategoria($dadosCategoria){
+
+         //Declaração de variável para utilizar no return desta função
+         $statusResposta = (boolean) false;
+         //Abre a conexão com o BD 
+         $conexao = conexaoMysql();
+         
+         //Monta o script para enviar para o BD
+         $sql = "update tbl_categorias set
+                     
+                     nome             = '".$dadosCategoria['nome']."',
+                     icone            = '".$dadosCategoria['icone']."'
+
+                     where id_categoria = ".$dadosCategoria['id'];
+                      
+         //echo($sql);
+ 
+         //Executa o script no BD
+             //Validação para verificar se o script sql está correto
+         if (mysqli_query($conexao, $sql)) {
+             
+             //Validação para verificar se uma linha foi acrescentada no BD
+             if(mysqli_affected_rows($conexao)) { 
+                 $statusResposta = true;
+             }
+             
+         }
+ 
+         //Solicita o fechamento da conexão com o BD
+         fecharConexaoMysql($conexao);
+         
+         return $statusResposta;
     }
 
     //Função para excluir no BD
