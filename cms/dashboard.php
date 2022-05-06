@@ -5,16 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" type="x-icon" href="../img/settingsIcon.svg">
+        <link rel="shortcut icon" type="x-icon" href="./img/settingsIcon.svg">
 
-        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
-        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-        <link rel="stylesheet" type="text/css" href="../css/cms-background.css">
-        <link rel="stylesheet" type="text/css" href="../css/contatos.css">
+        <link rel="stylesheet" type="text/css" href="./../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="./css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="./css/cms-background.css">
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-        <title>Contatos - Mybrary</title>
+        <title>CMS - Mybrary</title>
     </head>
     <body>
         <div class="estrelas"></div>
@@ -23,17 +22,15 @@
 
             <div class="header-conteudo">
 
-                <div id="cms-vulgo">                    
-                    <h1>CMS <img src="../../img/vulgo.svg" alt=""></h1>
+                <div id="cms-vulgo">
+                    <h1>CMS <img src="./../img/vulgo.svg" alt=""></h1>
                     <h3>Gerenciamento de Conteúdo do Site</h3>
                 </div>
                 
             </div>
 
             <div class="imagem-header">
-                <a href="../pages/dashboard.php">
-                    <img src="../img/settingsIcon.svg" alt="">
-                </a>
+                <img src="./img/settingsIcon.svg" alt="">
             </div>
 
         </header>
@@ -53,21 +50,21 @@
                         <div class="itens-link">
                             
                             <div class="itens-box">
-                                <a href="./produtos.php">
+                                <a href="produtos.php">
                                     <div class="icons"><i class='bx bx-cart-add'></i></div>
                                 </a>
                                 <li>Adm. de Produtos</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="./categorias.php">
+                                <a href="categorias.php">
                                     <div class="icons"><i class='bx bx-category-alt'></i></div>
                                 </a>
                                 <li>Adm. de Categorias</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="#">
+                                <a href="contatos.php">
                                     <div class="icons"><i class='bx bx-comment-dots'></i></div>
                                 </a>
                                 <li>Contatos</li>
@@ -87,11 +84,11 @@
                         <div class="logout-box">
                             <h3>Bem-vindo, 'Nome Usuário'</h3>
                             <div class="logout">
-                                <a href="../login.php">
+                                <a href="login.php">
                                     <div class="logout-icons">
                                         <span class="logout-dica">Logout</span>
-                                        <img id="logout-icon" src="../img/logout-icon.svg" alt="">
-                                        <img id="logout-hover" src="../img/logout-person-icon.svg" alt="">
+                                        <img id="logout-icon" src="./img/logout-icon.svg" alt="">
+                                        <img id="logout-hover" src="./img/logout-person-icon.svg" alt="">
                                     </div>
                                     <li>Logout</li>
                                 </a>
@@ -111,61 +108,18 @@
         </section>
 
         <section class="secao">
-                
-            <div id="consultaDeDados">
-                <table id="tblConsulta" >
-                    <tr>
-                        <td id="tblTitulo" colspan="6">
-                            <h1> Consulta de Dados.</h1>
-                        </td>
-                    </tr>
-                    <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> Nome </td>
-                        <td class="tblColunas destaque"> Celular </td>
-                        <td class="tblColunas destaque"> Email </td>
-                        <td class="tblColunas destaque"> Opções </td>
-                    </tr>
-                    
-                <?php
-                        //Import do arquivo da controller para solicitar a listagem dos dados
-                        require_once('../controller/controllerContatos.php');
-                        //Chama a função que vai retornar os dados de contatos
-                        $listContato = listarContato();
+            <h1>Bem-Vindo</h1>
 
-                        //Estrutura de repetição para retirar os dados do array e printar na tela
-                        if(!empty($listContato)) {
-                            foreach($listContato as $item) {
-
-                ?>
-
-                        <tr id="tblLinhas">
-                            <td class="tblColunas registros"><?=$item['nome']?></td>
-                            <td class="tblColunas registros"><?=$item['celular']?></td>
-                            <td class="tblColunas registros"><?=$item['email']?></td>
-                        
-                            <td class="tblColunas registros">
-
-                                <a onclick="return confirm('Deseja realmente excluir esse item?');" href="../router.php?component=contatos&action=deletar&id=<?=$item['id']?>">
-                                    <img src="../img/trash.png" alt="Excluir" title="Excluir" class="excluir">
-                                </a>
-
-                                <img src="../img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
-                            </td>
-                        </tr>
-
-                    <?php
-                            }
-                        }
-                    ?>
-
-                </table>
+            <div class="home-illustration">
+                <img src="./../img/menuIllustration.svg" alt="">
             </div>
 
         </section>
 
         <footer>
+            
             <div class="vulgo-footer">
-                <img src="../../img/vulgo.svg" alt="">
+                <img src="./../img/vulgo.svg" alt="">
             </div>
 
             <div class="copyright">

@@ -60,7 +60,7 @@
     //Função para solicitar os dados da Model e encamminhar a lista de contatos para a View
     function listarContato() {
         //Import do arquivo que vai buscar os dados
-        require_once('../model/bd/model-contatos.php');
+        require_once('./model/bd/model-contatos.php');
 
         //Chama a função que vai buscar os dados no BD
         $dados = selectAllContatos();

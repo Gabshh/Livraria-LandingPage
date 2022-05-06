@@ -41,7 +41,7 @@
                     if (is_bool($resposta) && $resposta) {
                         echo("<script>
                                 alert('Registro excluído com sucesso'); 
-                                window.location.href = 'pages/contatos.php';
+                                window.location.href = 'contatos.php';
                             </script>");
                     } elseif (is_array($resposta)){
                         echo("<script>
@@ -99,7 +99,7 @@
                         if($resposta) // Verificar se o retorno foi verdadeiro
                             echo("<script>
                                     alert('Registro inserido com sucesso'); 
-                                    window.location.href = './pages/categorias.php';
+                                    window.location.href = 'categorias.php';
                                 </script>");
                     //Se o retorno for um arry significa que houve erro no processo de inserção
                     } elseif (is_array($resposta)) {
@@ -122,7 +122,7 @@
                     if (is_bool($resposta) && $resposta) {
                         echo("<script>
                                 alert('Registro excluído com sucesso'); 
-                                window.location.href = './pages/categorias.php';
+                                window.location.href = 'categorias.php';
                             </script>");
                     } elseif (is_array($resposta)){
                         echo("<script>
@@ -158,7 +158,7 @@
 
                     /*Utilizando o require iremos apenas importar a tela da index, 
                     assim não havendo um novo carregamento da página*/
-                    require_once('pages/categorias.php');
+                    require_once('categorias.php');
 
                 } elseif($action == 'EDITAR') {
 
@@ -174,7 +174,7 @@
                         if($resposta) // Verificar se o retorno foi verdadeiro
                             echo("<script>
                                     alert('Registro atualizado com sucesso'); 
-                                    window.location.href = './pages/categorias.php';
+                                    window.location.href = 'categorias.php';
                                 </script>");
                     //Se o retorno for um array significa que houve erro no processo de edição
                     }elseif (is_array($resposta)) {

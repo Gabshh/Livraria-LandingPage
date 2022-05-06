@@ -75,7 +75,7 @@
     }
 
     //Função para receber dados da View e encaminhar para a Model (Atualizar)
-    function atualizarCategoria() {
+    function atualizarCategoria($dadosCategoria, $id) {
         // Validação para verificar se  o objeto esta vazio
         if(!empty($dadosCategoria)){
             /*
@@ -99,15 +99,16 @@
                     );
 
                     //import do arquivo de modelagem para manipular o BD
-                    require_once('model/bd/categoria.php');
+                    require_once('model/bd/model-categorias.php');
                     //Chama a função que fará o update no BD (esta função está na model)
-                    if(updateCategoria($arrayDados))
+                    if(updateCategoria($arrayDados)) {
                         return true;
-                    else
+                    }else{
                         return array(
                                     'idErro' => 1,
                                     'message' => 'Não foi possível atualizar os dados no banco de dados.'
                                     );
+                    }
 
                 }else{
                     return array(
@@ -148,7 +149,7 @@
     function listarCategoria() {
 
         //import do arquivo de modelagem para manipular o BD
-        require_once('../model/bd/model-categorias.php');
+        require_once('./model/bd/model-categorias.php');
 
         //Chama a função que vai buscar os dados no BD
         $dados = selectAllCategorias();

@@ -7,7 +7,7 @@
     /*Essa variável foi criada para diferenciar no action do formulário
     qual ação deveria ser levada para a router (inserir ou editar).
     Nas condções abaixo, mudamos o action dessa variável para a ação de editar*/
-    $actionForm = (string) "../router.php?component=categorias&action=inserir";
+    $actionForm = (string) "router.php?component=categorias&action=inserir";
 
     //Valida se a utilização de variáveis de sessão está ativa no servidor
     if (session_status()) {
@@ -19,7 +19,7 @@
             $icone = $_SESSION['dadosCategoria']['icone'];
         
             /*Mudamos a ação do form para editar o registro no click do botão salvar */
-            $actionForm = "../router.php?component=categorias&action=editar&id=".$id;
+            $actionForm = "router.php?component=categorias&action=editar&id=".$id;
 
             //Destrói uma variável da memoria do servidor
             unset($_SESSION['dadosCategoria']);
@@ -36,12 +36,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" type="x-icon" href="../img/settingsIcon.svg">
+        <link rel="shortcut icon" type="x-icon" href="./img/settingsIcon.svg">
 
-        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
-        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-        <link rel="stylesheet" type="text/css" href="../css/cms-background.css">
-        <link rel="stylesheet" type="text/css" href="../css/categorias.css">
+        <link rel="stylesheet" type="text/css" href="./../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="./css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="./css/cms-background.css">
+        <link rel="stylesheet" type="text/css" href="./css/categorias.css">
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
@@ -55,15 +55,15 @@
             <div class="header-conteudo">
 
                 <div id="cms-vulgo">
-                    <h1>CMS <img src="../../img/vulgo.svg" alt=""></h1>
+                    <h1>CMS <img src="./../img/vulgo.svg" alt=""></h1>
                     <h3>Gerenciamento de Conteúdo do Site</h3>
                 </div>
                 
             </div>
 
             <div class="imagem-header">
-                <a href="../pages/dashboard.php">
-                    <img src="../img/settingsIcon.svg" alt="">
+                <a href="dashboard.php">
+                    <img src="./img/settingsIcon.svg" alt="">
                 </a>
             </div>
 
@@ -118,11 +118,11 @@
                         <div class="logout-box">
                             <h3>Bem-vindo, 'Nome Usuário'</h3>
                             <div class="logout">
-                                <a href="../login.php">
+                                <a href="./login.php">
                                     <div class="logout-icons">
                                         <span class="logout-dica">Logout</span>
-                                        <img id="logout-icon" src="../img/logout-icon.svg" alt="">
-                                        <img id="logout-hover" src="../img/logout-person-icon.svg" alt="">
+                                        <img id="logout-icon" src="./img/logout-icon.svg" alt="">
+                                        <img id="logout-hover" src="./img/logout-person-icon.svg" alt="">
                                     </div>
                                     <li>Logout</li>
                                 </a>
@@ -194,7 +194,7 @@
                     
 
                             //Import do arquivo da controller para solicitar a listagem dos dados
-                            require_once('../controller/controllerCategorias.php');
+                            require_once('./controller/controllerCategorias.php');
 
 
                             //Chama a função que vai retornar os dados de categorias
@@ -211,12 +211,12 @@
                                 <td class="tblColunas registros"><?=$item['icone']?></td>
                             
                                 <td class="tblColunas registros">
-                                    <a href="../router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
-                                        <img src="../img/edit.png" alt="Editar" title="Editar" class="editar">
+                                    <a href="router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
+                                        <img src="./img/edit.png" alt="Editar" title="Editar" class="editar">
                                     </a>
 
-                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="../router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
-                                        <img src="../img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
+                                        <img src="./img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                                     </a>
 
                                 </td>
@@ -235,7 +235,7 @@
         <footer>
             
             <div class="vulgo-footer">
-                <img src="../../img/vulgo.svg" alt="">
+                <img src="./../img/vulgo.svg" alt="">
             </div>
 
             <div class="copyright">
