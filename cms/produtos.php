@@ -26,13 +26,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="shortcut icon" type="x-icon" href="../img/settingsIcon.svg">
+        <link rel="shortcut icon" type="x-icon" href="./img/settingsIcon.svg">
 
-        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
-        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-        <link rel="stylesheet" type="text/css" href="../css/cms-background.css">
-        <link rel="stylesheet" type="text/css" href="../css/categorias.css">
-        <link rel="stylesheet" type="text/css" href="../css/produtos.css">
+        <link rel="stylesheet" type="text/css" href="./../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="./css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="./css/cms-background.css">
+        <link rel="stylesheet" type="text/css" href="./css/categorias.css">
+        <link rel="stylesheet" type="text/css" href="./css/produtos.css">
 
 
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -47,15 +47,15 @@
             <div class="header-conteudo">
 
                 <div id="cms-vulgo">
-                    <h1>CMS <img src="../../img/vulgo.svg" alt=""></h1>
+                    <h1>CMS <img src="./../img/vulgo.svg" alt=""></h1>
                     <h3>Gerenciamento de Conteúdo do Site</h3>
                 </div>
                 
             </div>
 
             <div class="imagem-header">
-                <a href="../pages/dashboard.php">
-                    <img src="../img/settingsIcon.svg" alt="">
+                <a href="dashboard.php">
+                    <img src="./img/settingsIcon.svg" alt="">
                 </a>
             </div>
 
@@ -97,7 +97,7 @@
                             </div>
 
                             <div class="itens-box">
-                                <a href="#secao-usuarios">
+                                <a href="./usuarios.php">
                                     <div class="icons"><i class='bx bx-user-plus'></i></div>
                                 </a>
                                 <li>Usuários</li>
@@ -110,11 +110,11 @@
                         <div class="logout-box">
                             <h3>Bem-vindo, 'Nome Usuário'</h3>
                             <div class="logout">
-                                <a href="../login.php">
+                                <a href="login.php">
                                     <div class="logout-icons">
                                         <span class="logout-dica">Logout</span>
-                                        <img id="logout-icon" src="../img/logout-icon.svg" alt="">
-                                        <img id="logout-hover" src="../img/logout-person-icon.svg" alt="">
+                                        <img id="logout-icon" src="./img/logout-icon.svg" alt="">
+                                        <img id="logout-hover" src="./img/logout-person-icon.svg" alt="">
                                     </div>
                                     <li>Logout</li>
                                 </a>
@@ -153,19 +153,19 @@
 
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
-                                    <label> Avaliação: </label>
+                                    <label> Preço: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
+                                    <input type="text" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
                                 </div>
                             </div>
 
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
-                                    <label> Preço: </label>
+                                    <label> Avaliação: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
+                                    <input type="text" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
                                 </div>
                             </div>
                         
@@ -180,7 +180,7 @@
                             </div>
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
-                                    <label> Observações: </label>
+                                    <label> Sinopse: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
                                     <textarea name="txtObs" cols="50" rows="7"><?= isset($obs)?$obs:null ?></textarea>
@@ -194,7 +194,7 @@
                     </div>
                 </div>
 
-                
+                <!-- Consulta de Dados -->
 
                 <div id="consultaDeDados">
                     <table id="tblConsulta" >
@@ -206,40 +206,49 @@
                         <tr id="tblLinhas">
                             <td class="tblColunas destaque"> Descrição </td>
                             <td class="tblColunas destaque"> Preço </td>
+                            <td class="tblColunas destaque"> Avaliação </td>
+                            <td class="tblColunas destaque"> Desconto </td>
+                            <td class="tblColunas destaque"> Sinopse </td>
                             <td class="tblColunas destaque"> Opções </td>
                         </tr>
                         
                     <?php
                     
+
                             //Import do arquivo da controller para solicitar a listagem dos dados
-                            require_once('controller/controllerContatos.php');
-                            //Chama a função que vai retornar os dados de contatos
-                            $listContato = listarContato();
+                            require_once('./controller/controllerCategorias.php');
+
+
+                            //Chama a função que vai retornar os dados de categorias
+                            $listCategoria = listarCategoria();
 
                             //Estrutura de repetição para retirar os dados do array e printar na tela
-                            foreach($listContato as $item) {
+                            if(!empty($listCategoria)) {
+                                foreach($listCategoria as $item) {
 
                     ?>
 
                             <tr id="tblLinhas">
                                 <td class="tblColunas registros"><?=$item['nome']?></td>
-                                <td class="tblColunas registros"><?=$item['celular']?></td>
-                                <td class="tblColunas registros"><?=$item['email']?></td>
+                                <td class="tblColunas registros"><?=$item['preco']?></td>
+                                <td class="tblColunas registros"><?=$item['avaliacao']?></td>
+                                <td class="tblColunas registros"><?=$item['desconto']?></td>
+                                <td class="tblColunas registros"><?=$item['sinopse']?></td>
                             
                                 <td class="tblColunas registros">
-                                    <a href="router.php?component=contatos&action=buscar&id=<?=$item['id']?>">
-                                        <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                                    <a href="router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
+                                        <img src="./img/edit.png" alt="Editar" title="Editar" class="editar">
                                     </a>
 
-                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=contatos&action=deletar&id=<?=$item['id']?>">
-                                        <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
+                                        <img src="./img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                                     </a>
 
-                                    <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
                                 </td>
                             </tr>
 
                         <?php
+                                }
                             }
                         ?>
 

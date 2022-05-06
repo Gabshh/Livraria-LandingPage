@@ -50,28 +50,28 @@
                         <div class="itens-link">
                             
                             <div class="itens-box">
-                                <a href="produtos.php">
+                                <a href="./produtos.php">
                                     <div class="icons"><i class='bx bx-cart-add'></i></div>
                                 </a>
                                 <li>Adm. de Produtos</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="categorias.php">
+                                <a href="./categorias.php">
                                     <div class="icons"><i class='bx bx-category-alt'></i></div>
                                 </a>
                                 <li>Adm. de Categorias</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="contatos.php">
+                                <a href="./contatos.php">
                                     <div class="icons"><i class='bx bx-comment-dots'></i></div>
                                 </a>
                                 <li>Contatos</li>
                             </div>
 
                             <div class="itens-box">
-                                <a href="#secao-usuarios">
+                                <a href="./usuarios.php">
                                     <div class="icons"><i class='bx bx-user-plus'></i></div>
                                 </a>
                                 <li>Usuários</li>

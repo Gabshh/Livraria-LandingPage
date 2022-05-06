@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="itens-box">
-                                <a href="#secao-usuarios">
+                                <a href="./usuarios.php">
                                     <div class="icons"><i class='bx bx-user-plus'></i></div>
                                 </a>
                                 <li>Usuários</li>
