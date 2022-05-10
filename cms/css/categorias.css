@@ -68,7 +68,7 @@ div .onda.onda1 {
     box-sizing: border-box;
 }
 
-input[type=text],
+input[type=text], input[type=number],
 select {
     height: 50px;
     width: 90%;

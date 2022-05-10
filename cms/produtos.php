@@ -156,7 +156,7 @@
                                     <label> Preço: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
+                                    <input id="preco" type="number" min="0.00" max="10000.00" step="0.01" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
                                 </div>
                             </div>
 
@@ -164,20 +164,31 @@
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Avaliação: </label>
                                 </div>
+
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
+                                    <input type="number" min="0" max="5" step="any" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
                                 </div>
                             </div>
-                        
 
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Desconto: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtEmail" value="<?= isset($email)?$email:null ?>">
+                                    <input id="desconto" type="number" min="0" max="100" step="any" name="txtEmail" value="<?= isset($email)?$email:null ?>">
+                                    <span>%</span>
                                 </div>
                             </div>
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Imagem: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="file" name="fileFoto" accept=".jpg, .png, .jpeg, .gif">
+                                </div>
+                            </div>
+
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Sinopse: </label>

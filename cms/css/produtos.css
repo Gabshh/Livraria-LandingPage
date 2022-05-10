@@ -37,6 +37,10 @@ textarea::-moz-placeholder {
     transition: 1s;
 }
 
+#desconto {
+  width: 90px;
+}
+
 .enviar{
     margin-top: 100px;
     margin-bottom: 50px;
