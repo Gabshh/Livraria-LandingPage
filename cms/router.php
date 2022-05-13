@@ -290,6 +290,110 @@
                     }
                 }
                 break;
+
+                case 'PRODUTOS':
+
+                    //Import da controller Produtos
+                    require_once('./controller/controllerProdutos.php');
+    
+                    //Validação para identificar o tipo de ação que será realizado
+                    if($action == 'INSERIR'){
+                        //Chama a função de inserir na controller
+                        
+                        $resposta = inserirProduto($_POST);
+    
+                        //Valida o tipo de dados que a controller retornou
+                        if(is_bool($resposta)) { //Se for booleano 
+                            
+                            if($resposta) // Verificar se o retorno foi verdadeiro
+                                echo("<script>
+                                        alert('Registro inserido com sucesso'); 
+                                        window.location.href = 'produtos.php';
+                                    </script>");
+                        //Se o retorno for um arry significa que houve erro no processo de inserção
+                        } elseif (is_array($resposta)) {
+                            echo("<script>
+                                    alert('".$resposta['message']."'); 
+                                    window.history.back();
+                                </script>");
+                        }
+    
+                    } 
+                    //Validação para identificar o tipo de ação que será realizado
+                    elseif($action == 'DELETAR') {
+                        /*Recebe o id do registro que deverpa ser exlcuido, que foi enviado pela url
+                         no link da imagem do excluir que foi acionado na index*/
+                        $idProduto = $_GET["id"];
+    
+                        //Chama a função de excluir na controller
+                        $resposta = excluirProduto($idProduto);
+    
+                        if (is_bool($resposta) && $resposta) {
+                            echo("<script>
+                                    alert('Registro excluído com sucesso'); 
+                                    window.location.href = 'produtos.php';
+                                </script>");
+                        } elseif (is_array($resposta)){
+                            echo("<script>
+                                        alert('".$resposta['message']."'); 
+                                        window.history.back();
+                                </script>");
+                        }
+    
+                    }elseif($action == 'BUSCAR') {
+                        /*Recebe o id do registro que devera ser editado, 
+                        que foi enviado pela url no link da imagem do editar
+                        que foi acionado no produtos.php*/
+                         $idProduto = $_GET["id"];
+    
+                        //Chama a função de buscar na controller
+                         $dados = buscarProduto($idProduto);
+    
+                        //Ativa a utilização de variáveis de sessão no servidor
+                         session_start();
+    
+                        //Guarda em uma variável de sessão os dados que o BD retornou para a busca do id
+                        /*
+                        OBS (essa variável de sessão será utilizada na index, 
+                        para colocar os dados nas caixas e texto)
+                        */
+                         $_SESSION['dadosProduto'] = $dados;
+    
+                        /* Utilizando o header também poderemos chamar a index.php 
+                        porém haverá um delay de carregamento no navegador (piscando a tela)
+                        
+                        header('location: index.php');
+                        */
+    
+                        /*Utilizando o require iremos apenas importar a tela da index, 
+                        assim não havendo um novo carregamento da página*/
+                        require_once('produtos.php');
+    
+                    } elseif($action == 'EDITAR') {
+    
+                        //Recebe o id que foi encaminhado no action do form pela URL
+                        $idProduto = $_GET['id'];
+    
+                        //Chama a função de editar na controller
+                        $resposta = atualizarProduto($_POST, $idProduto);
+    
+                        //Valida o tipo de dados que a controller retornou
+                        if(is_bool($resposta)) { //Se for booleano 
+                            
+                            if($resposta) // Verificar se o retorno foi verdadeiro
+                                echo("<script>
+                                        alert('Registro atualizado com sucesso'); 
+                                        window.location.href = 'produtos.php';
+                                    </script>");
+                        //Se o retorno for um array significa que houve erro no processo de edição
+                        }elseif (is_array($resposta)) {
+                            echo("<script>
+                                    alert('".$resposta['message']."'); 
+                                    window.history.back();
+                                </script>"); 
+                        }
+                    }
+                    break;
         }
         
     }

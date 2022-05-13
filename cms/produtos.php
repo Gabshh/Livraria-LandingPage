@@ -1,21 +1,43 @@
 <?php 
 
-    $nome = (string) null;
+    //import do arquivo de configurações do projeto
+    require_once('modulo/config.php');
 
-    //Valida se a utilização de variáveis de sessão está ativa no servidor
-    if (session_status()) {
+    //Essa variavel foi criada para diferenciar no action do formulário
+    //qual ação deveria ser levada para a router (inserir ou editar).
+    //Nas condições abaixo, mudamos o action dessa variavel para a ação de
+    //editar
+    $form = (string) "router.php?component=produtos&action=inserir";
+    
+    $descricao = (string) null;
 
-        //Valida se a variável de sessão dadosContato não está vazia
-        if (!empty($_SESSION['dadosContato'])) {
-            $id         = $_SESSION['dadosContato']['id'];
-            $nome       = $_SESSION['dadosContato']['nome'];
-            $telefone   = $_SESSION['dadosContato']['telefone'];
-            $celular    = $_SESSION['dadosContato']['celular'];
-            $email      = $_SESSION['dadosContato']['email'];
-            $obs      = $_SESSION['dadosContato']['obs'];
+    //Variavel para carregar o nome da foto do banco de dados
+    $foto = (string) null;
+
+    //Valida se a utilização de variáveis de 
+    //sessão esta ativa no servidor
+    if(session_status())
+    {
+        //Valida se a variável de sessão dadosProduto 
+        //não esta vázia
+        if(!empty($_SESSION['dadosProduto']))
+        {
+            $id         = $_SESSION['dadosProduto']['id'];
+            $descricao  = $_SESSION['dadosProduto']['descricao'];
+            $destaque   = $_SESSION['dadosProduto']['destaque'];
+            $preco      = $_SESSION['dadosProduto']['preco'];
+            $avaliacao  = $_SESSION['dadosProduto']['avaliacao'];
+            $desconto   = $_SESSION['dadosProduto']['desconto'];
+            $sinopse    = $_SESSION['dadosProduto']['sinopse'];
+            $foto       = $_SESSION['dadosProduto']['foto'];
+
+            //Mudamos a ação do form para editar o registro no click do botão salvar
+            $form = "router.php?component=produtos&action=editar&id=".$id."&foto=".$foto;
+
+            //Destroi uma variavel da memória do servidor 
+            unset($_SESSION['dadosProduto']);
         }
     }
-    
 
 ?>
 
@@ -47,7 +69,7 @@
             <div class="header-conteudo">
 
                 <div id="cms-vulgo">
-                    <h1>CMS <img src="./../img/vulgo.svg" alt=""></h1>
+                    <h1>CMS <img src="../img/vulgo.svg" alt=""></h1>
                     <h3>Gerenciamento de Conteúdo do Site</h3>
                 </div>
                 
@@ -141,13 +163,23 @@
                         
                     </div>
                     <div id="cadastroInformacoes">
-                        <form  action="router.php?component=contatos&action=inserir" name="frmCadastro" method="post" >
-                            <div class="campos">
+                        <form  action="router.php?component=produtos&action=inserir" name="frmCadastro" method="post" >
+                        
+                        <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Imagem: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                    <input type="file" name="fileFoto" accept="image/*">
+                                </div>
+                            </div>
+                        
+                        <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
                                     <label> Descrição: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Adicione uma descrição..." maxlength="100">
+                                    <input type="text" name="txtDescricao" value="<?=$descricao?>" placeholder="Adicione uma descrição..." maxlength="100">
                                 </div>
                             </div>
 
@@ -156,7 +188,7 @@
                                     <label> Preço: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input id="preco" type="number" min="0.00" max="10000.00" step="0.01" name="txtCelular" value="<?= isset($celular)?$celular:null ?>">
+                                    <input id="preco" type="number" min="0.00" max="10000.00" step="0.01" name="txtPreco" value="<?= isset($preco)?$preco:null ?>">
                                 </div>
                             </div>
 
@@ -166,7 +198,7 @@
                                 </div>
 
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="number" min="0" max="5" step="any" name="txtTelefone" value="<?= isset($telefone)?$telefone:null ?>">
+                                    <input type="number" min="0" max="5" step="any" name="txtAvaliacao" value="<?= isset($avaliacao)?$avaliacao:null ?>">
                                 </div>
                             </div>
 
@@ -175,17 +207,17 @@
                                     <label> Desconto: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input id="desconto" type="number" min="0" max="100" step="any" name="txtEmail" value="<?= isset($email)?$email:null ?>">
+                                    <input id="desconto" type="number" min="0" max="100" step="any" name="txtDesconto" value="<?= isset($desconto)?$desconto:null ?>">
                                     <span>%</span>
                                 </div>
                             </div>
 
                             <div class="campos">
                                 <div class="cadastroInformacoesPessoais">
-                                    <label> Imagem: </label>
+                                    <label> Destaque: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="file" name="fileFoto" accept=".jpg, .png, .jpeg, .gif">
+                                    <input type="checkbox" id="destaque" name="checkboxDestaque">
                                 </div>
                             </div>
 
@@ -194,7 +226,7 @@
                                     <label> Sinopse: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <textarea name="txtObs" cols="50" rows="7"><?= isset($obs)?$obs:null ?></textarea>
+                                    <textarea name="txtSinopse" cols="50" rows="7"><?= isset($sinopse)?$sinopse:null ?></textarea>
                                 </div>
                             </div>
                                             
@@ -227,31 +259,31 @@
                     
 
                             //Import do arquivo da controller para solicitar a listagem dos dados
-                            require_once('./controller/controllerCategorias.php');
+                            require_once('./controller/controllerProdutos.php');
 
 
-                            //Chama a função que vai retornar os dados de categorias
-                            $listCategoria = listarCategoria();
+                            //Chama a função que vai retornar os dados de produtos
+                            $listProduto = listarProduto();
 
                             //Estrutura de repetição para retirar os dados do array e printar na tela
-                            if(!empty($listCategoria)) {
-                                foreach($listCategoria as $item) {
+                            if(!empty($listProduto)) {
+                                foreach($listProduto as $item) {
 
                     ?>
 
                             <tr id="tblLinhas">
-                                <td class="tblColunas registros"><?=$item['nome']?></td>
+                                <td class="tblColunas registros"><?=$item['descricao']?></td>
                                 <td class="tblColunas registros"><?=$item['preco']?></td>
                                 <td class="tblColunas registros"><?=$item['avaliacao']?></td>
                                 <td class="tblColunas registros"><?=$item['desconto']?></td>
                                 <td class="tblColunas registros"><?=$item['sinopse']?></td>
                             
                                 <td class="tblColunas registros">
-                                    <a href="router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
+                                    <a href="router.php?component=produtos&action=buscar&id=<?=$item['id']?>">
                                         <img src="./img/edit.png" alt="Editar" title="Editar" class="editar">
                                     </a>
 
-                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
+                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=produtos&action=deletar&id=<?=$item['id']?>">
                                         <img src="./img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                                     </a>
 
@@ -271,7 +303,7 @@
         <footer>
             
             <div class="vulgo-footer">
-                <img src="../../img/vulgo.svg" alt="">
+                <img src="../img/vulgo.svg" alt="">
             </div>
 
             <div class="copyright">

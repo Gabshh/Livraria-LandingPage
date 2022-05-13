@@ -2,6 +2,17 @@
     min-height: 500px;
 }
 
+input[type=file] {
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+input[type=checkbox] {
+  height: 30px;
+  width: 30px;
+  margin-top: 10px;
+}
+
 textarea,
 select {
     height: 120px;

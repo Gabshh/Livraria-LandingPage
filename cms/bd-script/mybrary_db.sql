@@ -20,7 +20,7 @@ insert into tbl_contatos (nome, sobrenome, email, celular, mensagem) values ('MC
                                                                             ('MC', 'Queen', 'LightningMCQueen@gmail.com', '11940028922', 'oi sua livraria é top :)');
 show tables;
 
-desc tbl_categorias;
+desc tbl_produtos;
 
 select * from tbl_produtos;
 
@@ -57,6 +57,12 @@ create table tbl_produtos (
     desconto DOUBLE(4,3),
     sinopse text
 );
+
+ALTER TABLE tbl_produtos
+	ADD COLUMN foto VARCHAR(50);
+    
+ALTER TABLE tbl_produtos 
+MODIFY COLUMN preco DOUBLE(8,2) default 20 NOT NULL;
 
 insert into tbl_produtos (descricao, destaque, preco, avaliacao, desconto, sinopse) values ('Livro', true, 50, 5, 5, 'sinopse maneira' ), 
 																						   ('Livro', true, 100, 5, 2, 'sinopse legal'),
