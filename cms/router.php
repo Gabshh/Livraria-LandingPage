@@ -89,9 +89,27 @@
 
                 //Validação para identificar o tipo de ação que será realizado
                 if($action == 'INSERIR'){
-                    //Chama a função de inserir na controller
                     
-                    $resposta = inserirCategoria($_POST);
+                    // Validação para tratar se a imagem existe na chegada dos dados do HTML
+                    if (isset($_FILES) && !empty($_FILES)) {
+
+                        $arrayDados = array(
+                                            $_POST,
+                                            'file' => $_FILES
+                                            );
+
+                        //Chama a função de inserir na controller
+                        $resposta = inserirCategoria($arrayDados);
+
+                    } else {
+
+                        $arrayDados = array(
+                            $_POST,
+                            'file' => null
+                            );
+
+                        $resposta = inserirCategoria($arrayDados);
+                    }
 
                     //Valida o tipo de dados que a controller retornou
                     if(is_bool($resposta)) { //Se for booleano 
@@ -115,9 +133,16 @@
                     /*Recebe o id do registro que deverpa ser exlcuido, que foi enviado pela url
                      no link da imagem do excluir que foi acionado na index*/
                     $idCategoria = $_GET["id"];
+                    $icone = $_GET['icone'];
+
+                    // Criamos um array para encaminhar os valores do id e da foto para a controller
+                    $arrayDados = array (
+                        "id"     =>    $idCategoria,
+                        "icone"   =>    $icone
+                    );
 
                     //Chama a função de excluir na controller
-                    $resposta = excluirCategoria($idCategoria);
+                    $resposta = excluirCategoria($arrayDados);
 
                     if (is_bool($resposta) && $resposta) {
                         echo("<script>
@@ -165,8 +190,18 @@
                     //Recebe o id que foi encaminhado no action do form pela URL
                     $idCategoria = $_GET['id'];
 
+                    //Recebe o nome da foto que foi enviada pelo GET do form
+                    $icone = $_GET['icone'];
+
+                    //Cria um array contendo o id e nome da foto para enviar a controller
+                    $arrayDados = array (
+                        "id"    =>   $idCategoria,
+                        "icone"  =>   $icone,
+                        "file"  =>   $_FILES
+                    );
+
                     //Chama a função de editar na controller
-                    $resposta = atualizarCategoria($_POST, $idCategoria);
+                    $resposta = atualizarCategoria($_POST, $arrayDados);
 
                     //Valida o tipo de dados que a controller retornou
                     if(is_bool($resposta)) { //Se for booleano 

@@ -1,5 +1,8 @@
 <?php 
 
+    // Import do arquivo de configurações do projeto
+    require_once('./modulo/config.php');
+
     $id = (int) null;
     $nome = (string) null;
     $icone = (string) null;
@@ -19,7 +22,7 @@
             $icone = $_SESSION['dadosCategoria']['icone'];
         
             /*Mudamos a ação do form para editar o registro no click do botão salvar */
-            $actionForm = "router.php?component=categorias&action=editar&id=".$id;
+            $actionForm = "router.php?component=categorias&action=editar&id=".$id."&icone=".$icone;
 
             //Destrói uma variável da memoria do servidor
             unset($_SESSION['dadosCategoria']);
@@ -164,10 +167,11 @@
                                     <label> Icone: </label>
                                 </div>
                                 <div class="cadastroEntradaDeDados">
-                                    <input type="text" name="txtIcone" value="<?=$icone?>" placeholder="..." maxlength="100">
+                                    <input type="file" name="icone" accept="image/*">
+                                    <img src="<?=DIRETORIO_FILE_UPLOAD.$icone?>" alt="">
                                 </div>
                             </div>
-                                            
+
                             <div class="enviar">
                                     <input type="submit" name="btnEnviar" value="Salvar">
                             </div>
@@ -186,7 +190,7 @@
                         </tr>
                         <tr id="tblLinhas">
                             <td class="tblColunas destaque"> Nome </td>
-                            <td class="tblColunas destaque"> Ícone </td>
+                            <td class="tblColunas destaque"> Icone </td>
                             <td class="tblColunas destaque"> Opções </td>
                         </tr>
                         
@@ -204,18 +208,20 @@
                             if(!empty($listCategoria)) {
                                 foreach($listCategoria as $item) {
 
+                                    $icone = $item['icone'];
+
                     ?>
 
                             <tr id="tblLinhas">
                                 <td class="tblColunas registros"><?=$item['nome']?></td>
-                                <td class="tblColunas registros"><?=$item['icone']?></td>
+                                <td class="tblColunas registros"> <img src="<?=DIRETORIO_FILE_UPLOAD.$icone?>" alt="fotinha" class="icone" > </td>
                             
                                 <td class="tblColunas registros">
                                     <a href="router.php?component=categorias&action=buscar&id=<?=$item['id']?>">
                                         <img src="./img/edit.png" alt="Editar" title="Editar" class="editar">
                                     </a>
 
-                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=categorias&action=deletar&id=<?=$item['id']?>">
+                                    <a onclick="return confirm('Deseja realmente excluir esse item?');" href="router.php?component=categorias&action=deletar&id=<?=$item['id']?>&foto=<?=$foto?>">
                                         <img src="./img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                                     </a>
 

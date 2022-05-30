@@ -79,7 +79,7 @@
                 $arrayDados = array(
                     "id"            => $rsDados['id_categoria'],
                     "nome"          => $rsDados['nome'],
-                    "icone"     => $rsDados['icone']               
+                    "icone"         => $rsDados['icone']               
                 );
 
             }
@@ -87,7 +87,11 @@
             //Solicita o fechamento da conexão com o BD
             fecharConexaoMysql($conexao);
 
-            return $arrayDados;
+            if(isset($arrayDados)) {
+                return $arrayDados;
+            }else {
+                return false;
+            }
         }
     }
 
@@ -190,7 +194,11 @@
             //Solicita o fechamento da conexão com o BD
             fecharConexaoMysql($conexao);
 
-            return $arrayDados;
+            if(isset($arrayDados)) {
+                return $arrayDados;
+            }else {
+                return false;
+            }
         }
     }
 ?>

@@ -28,7 +28,8 @@
                     avaliacao,
                     desconto,
                     sinopse,
-                    foto
+                    foto,
+                    id_categoria
                     ) 
                 values 
                     (
@@ -38,7 +39,8 @@
                     '".$dadosProduto['avaliacao']."',
                     '".$dadosProduto['desconto']."',
                     '".$dadosProduto['sinopse']."',
-                    '".$dadosProduto['foto']."'
+                    '".$dadosProduto['foto']."',
+                    '".$dadosProduto['id_categoria']."'
                     );";
         
         //echo($sql);
@@ -95,6 +97,7 @@
                     "avaliacao"    => $rsDados['avaliacao'],
                     "desconto"     => $rsDados['desconto'],
                     "sinopse"      => $rsDados['sinopse'],
+                    "id_categoria"      => $rsDados['id_categoria'],
                     "foto"         => $rsDados['foto'] 
                 );
 
@@ -125,6 +128,7 @@
                      avaliacao      = '".$dadosProduto['avaliacao']."',
                      desconto       = '".$dadosProduto['desconto']."',
                      sinopse        = '".$dadosProduto['sinopse']."',
+                     id_categoria        = '".$dadosProduto['id_categoria']."',
                      foto           = '".$dadosProduto['foto']."'
 
                      where id_produto = ".$dadosProduto['id'];
@@ -208,6 +212,7 @@
                     "avaliacao"  => $rsDados['avaliacao'],
                     "desconto"   => $rsDados['desconto'],
                     "sinopse"    => $rsDados['sinopse'],
+                    "id_categoria"    => $rsDados['id_categoria'],
                     "foto"       => $rsDados['foto']
                 );
                 $cont++;

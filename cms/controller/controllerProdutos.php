@@ -21,7 +21,7 @@
              Validação de caixa vazia do elemento nome,
              pois é obrigatóris no BD
             */
-            if(!empty($dadosProduto['txtDescricao']) && !empty($dadosProduto['txtPreco'])) { 
+            if(!empty($dadosProduto['txtDescricao']) && !empty($dadosProduto['txtPreco']) !empty($dadosProduto[0]['categoria'])) { 
 
                 //Validação para identificar se chegou um arquivo para upload
                 if ($file['fileFoto']['name'] != null)
@@ -37,7 +37,7 @@
                         //Caso aconteça algum erro no processo de upload, a função irá retornar
                         //um array com a possivel mensagem de erro. Esse array será retornado para
                         //a router e ela irá exibir a mensagem para o usuário
-                        return $nomeFoto;
+                        return $novaFoto;
                     }
 
                 }
@@ -54,7 +54,8 @@
                     "avaliacao"  => $dadosProduto['txtAvaliacao'],
                     "desconto"   => $dadosProduto['txtDesconto'],
                     "sinopse"    => $dadosProduto['txtSinopse'],
-                    "foto"       => $nomeFoto
+                    "foto"       => $novaFoto,
+                    "id_categoria"    => $dadosProduto['categoria'],
                 );
 
                 
@@ -150,6 +151,7 @@
                         "avaliacao"  => $dadosProduto['txtAvaliacao'],
                         "desconto"   => $dadosProduto['txtDesconto'],
                         "sinopse"    => $dadosProduto['txtSinopse'],
+                        "id_categoria" => $dadosContato['categoria']
                         "foto"       => $novaFoto
                     );
 

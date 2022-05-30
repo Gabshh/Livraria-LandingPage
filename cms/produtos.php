@@ -11,6 +11,8 @@
     
     $descricao = (string) null;
 
+    $id_categoria = (int) null;
+
     //Variavel para carregar o nome da foto do banco de dados
     $foto = (string) null;
 
@@ -23,13 +25,14 @@
         if(!empty($_SESSION['dadosProduto']))
         {
             $id         = $_SESSION['dadosProduto']['id'];
-            $descricao  = $_SESSION['dadosProduto']['descricao'];
-            $destaque   = $_SESSION['dadosProduto']['destaque'];
-            $preco      = $_SESSION['dadosProduto']['preco'];
-            $avaliacao  = $_SESSION['dadosProduto']['avaliacao'];
-            $desconto   = $_SESSION['dadosProduto']['desconto'];
-            $sinopse    = $_SESSION['dadosProduto']['sinopse'];
-            $foto       = $_SESSION['dadosProduto']['foto'];
+            $foto  = $_SESSION['dadosCategoria']['foto'];
+            $descricao = $_SESSION['dadosCategoria']['descricao'];
+            $destaque = $_SESSION['dadosCategoria']['destaque'];
+            $preco = $_SESSION['dadosCategoria']['preco'];
+            $avaliacao = $_SESSION['dadosCategoria']['avaliacao'];
+            $desconto = $_SESSION['dadosCategoria']['desconto'];
+            $sinopse = $_SESSION['dadosCategoria']['sinopse'];
+            $id_categoria = $_SESSION['dadosCategoria']['id_categoria'];
 
             //Mudamos a ação do form para editar o registro no click do botão salvar
             $form = "router.php?component=produtos&action=editar&id=".$id."&foto=".$foto;
@@ -189,6 +192,30 @@
                                 </div>
                                 <div class="cadastroEntradaDeDados">
                                     <input id="preco" type="number" min="0.00" max="10000.00" step="0.01" name="txtPreco" value="<?= isset($preco)?$preco:null ?>">
+                                </div>
+                            </div>
+
+                            <div class="campos">
+                                <div class="cadastroInformacoesPessoais">
+                                    <label> Categoria: </label>
+                                </div>
+                                <div class="cadastroEntradaDeDados">
+                                <select name="categoria" id="" required>
+                                <option value="">Selecione um item:</option>
+                                <?php 
+
+                                    // import da controller de estados
+                                    require_once('./controller/controllerCategorias.php');
+
+                                    // chama a função para carregar todos os estados no BD
+                                    $listCategorias = listarCategoria();
+                                    foreach($listCategorias as $item) {
+                                        ?>
+                                            <option <?=$id_categoria==$item['id_categoria']?'selected':null?> value="<?=$item['id_categoria']?>"><?=$item['nome']?></option>
+                                        <?php
+                                    }
+                                ?>
+                            </select>
                                 </div>
                             </div>
 

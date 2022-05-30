@@ -38,6 +38,11 @@ div .onda.onda1 {
     padding-bottom: 110px;
 }
 
+input[type=file] {
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+
 .campos{
     width: auto;
     height: 50px;
